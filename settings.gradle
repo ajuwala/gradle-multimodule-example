@@ -1,0 +1,8 @@
+rootProject.name = 'multimodule'
+
+include("module1")
+project(":module1").projectDir = file("module1")
+
+include("module2")
+project(":module2").projectDir = file("module2")
+

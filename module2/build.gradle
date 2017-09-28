@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath group: 'com.example.plugin', name: 'module1', version: '1.0.0'
+    }
+
+    // This causes the build to loop indefinitely
+    /*project.getTasks().create(name:"module1-build", type:GradleBuild) {
+        buildFile = '../module1/build.gradle'
+        tasks = ['pluginJar']
+    }.execute()*/
+}
+
+apply plugin: 'com.example.gradle.plugin'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
